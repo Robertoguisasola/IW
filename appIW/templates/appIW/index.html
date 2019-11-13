@@ -53,15 +53,15 @@
       </div>
       <div id="content">
         <h1>Bienvenido a Ski Stick</h1>
-        <p>A continuacion se muestran las diferentes provincias que poseen alguna estacion de esqui</p>
+        <p>A continuacion se muestran las diferentes cordilleras que poseen alguna estacion de esqui</p>
         <p>
-        {% block provincias %}
-        <h2>Listado de provincias</h2>
-        {% if provincias %}
+        {% block cordilleras %}
+        <h2>Listado de cordilleras</h2>
+        {% if listaCordilleras %}
         <ul>
-          {% for p in provincias %}
+          {% for c in listaCordilleras %}
           <li>
-            <a href="/appIW/{{ p.nombre }}">{{ p.nombre}}</a>
+            <a href="/appIW/{{ c.nombre }}">{{ c.nombre}}</a>
             <!--TODO sacar las estaciones en funcion de las cordilleras-->
             {% if estaciones %}
               <ul>
@@ -76,7 +76,7 @@
           {% endfor %}
         </ul>
         {% else %}
-        <p>No hay provincias creados.</p>
+        <p>No hay cordilleras creadas.</p>
         {% endif %}
         {% endblock %}
         </p>
