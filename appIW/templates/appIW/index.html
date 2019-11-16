@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="es">
 
 <head>
-  <title>night_sky</title>
+  <title>SKI STICK</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
@@ -52,8 +52,10 @@
         </form>
       </div>
       <div id="content">
-        <h1>Bienvenido a Ski Stick</h1>
-        <p>A continuacion se muestran las diferentes cordilleras que poseen alguna estacion de esqui</p>
+        <h1>Estaciones de esqu&iacute;</h1>
+        <p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
+        <!--TODO meter javaQuery para sacar la tabla de las estaciones por cordilleras-->
+        <!--https://es.stackoverflow.com/questions/70206/como-incluir-html-en-otro-html-->
         <p>
         {% block cordilleras %}
         <h2>Listado de cordilleras</h2>
@@ -64,13 +66,13 @@
             <a href="/appIW/{{ c.nombre }}">{{ c.nombre}}</a>
             <!--TODO sacar las estaciones en funcion de las cordilleras-->
             {% if estaciones %}
-              <ul>
+              <!--<ul>
                 {% for e in estaciones %}
                 <li>
                   <a>{{e.nombre}}</a>
                 </li>
                 {% endfor %}
-              </ul>
+              </ul>-->
             {% endif %}
           </li>
           {% endfor %}
