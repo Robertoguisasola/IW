@@ -61,7 +61,7 @@
         <ul>
           {% for c in listaCordilleras %}
           <li>
-            <a href="/appIW/{{ c.nombre }}">{{ c.nombre}}</a>
+            <a href="/{{ c.id }}">{{ c.nombre}}</a>
             <!--TODO sacar las estaciones en funcion de las cordilleras-->
             {% if estaciones %}
               <ul>
