@@ -1,5 +1,3 @@
-{% extends "base.html" %}
-
 {% block titulo %}Listado de cordilleras{% endblock %}
 
 {% block contenido %}
@@ -8,7 +6,7 @@
 	<ul>
 	{% for c in listaCordilleras %}
 		<li>
-		    <a href="/appIW/cordillera{{c.nombre}}">{{c.nombre}}</a>
+		    <a href="/appIW/{{c.nombre}}">{{c.nombre}}</a>
 		</li>
 	{% endfor %}
 	</ul>

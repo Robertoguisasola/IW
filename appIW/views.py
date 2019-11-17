@@ -7,6 +7,10 @@ from .models import Cordillera, Estacion, Pista
 # Create your views here.
 # view inicial
 def index(request):
+    return render(request, 'appIW/index.html')
+
+
+def index(request):
     cordilleras = get_list_or_404(Cordillera.objects.order_by('nombre'))
     context = {'listaCordilleras': cordilleras}
     return render(request, 'appIW/index.HTML', context)
@@ -22,7 +26,8 @@ def cordilleras(request):
 # Devuelve los detalles de una cordillera
 def cordillera(request, cordillera_id):
     cordillera = get_object_or_404(Cordillera, pk=cordillera_id)
-    context = {'cordillera': cordillera}
+    estaciones = cordillera.estacion_set.all()
+    context = {'cordillera': cordillera, 'estaciones': estaciones}
     return render(request, 'appIW/cordillera.html', context)
 
 

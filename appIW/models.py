@@ -6,6 +6,9 @@ from django.db import models
 class Cordillera(models.Model):
     nombre = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Estacion(models.Model):
     cordillera = models.ForeignKey(Cordillera, on_delete=models.CASCADE)
@@ -17,6 +20,9 @@ class Estacion(models.Model):
     nKilometrosTotales = models.DecimalField(decimal_places=2, max_digits=6)
     enlacePagina = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Pista(models.Model):
     estacion = models.ForeignKey(Estacion, on_delete=models.CASCADE)
@@ -24,3 +30,6 @@ class Pista(models.Model):
     abierta = models.BooleanField()
     dificultad = models.CharField(max_length=10)
     longitud = models.DecimalField(decimal_places=2, max_digits=6)
+
+    def __str__(self):
+        return self.nombre

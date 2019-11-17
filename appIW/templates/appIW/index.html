@@ -1,12 +1,15 @@
+{% load static %}
 <!DOCTYPE HTML>
-<html lang="es">
 
+<html lang="en">
 <head>
+
   <title>SKI STICK</title>
-  <meta name="description" content="website description" />
-  <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
-  <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="description" content="website description"/>
+  <meta name="keywords" content="website keywords, website keywords"/>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'appIW/style/style.css' %}"/>
 </head>
 
 <body>
@@ -15,14 +18,15 @@
       <div id="logo">
         <div id="logo_text">
           <!-- class="logo_colour", allows you to change the colour of the text -->
-          <h1><a href="index.html">night<span class="logo_colour">_sky</span></a></h1>
-          <h2>Simple. Contemporary. Website Template.</h2>
+          <h1>Ski <span class="logo_colour">Stick</span></h1>
+          <h2><a href="https://www.fis-ski.com/en">Acceso a la Federación Internacional de Esquí</a></h2>
         </div>
       </div>
       <div id="menubar">
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li class="selected"><a href="index.html">Home</a></li>
+          <!--TODO cambiar los nombres de las pestañas de la página-->
+          <li class="selected"><a href="index.html">Inicio</a></li>
           <li><a href="examples.html">Examples</a></li>
           <li><a href="page.html">A Page</a></li>
           <li><a href="another_page.html">Another Page</a></li>
@@ -30,6 +34,7 @@
         </ul>
       </div>
     </div>
+    <div id="content_header"></div>
     <div id="site_content">
       <div class="sidebar">
         <h1>Latest News</h1>
@@ -47,12 +52,26 @@
         <form method="post" action="#" id="search_form">
           <p>
             <input class="search" type="text" name="search_field" value="Enter keywords....." />
-            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Search" title="Search" />
+            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="appIW/style/search.png" alt="Search" title="Search" />
           </p>
         </form>
       </div>
       <div id="content">
-        <h1>Estaciones de esqu&iacute;</h1>
+        <!--TODO poner lo que queremos que se muestre en la página de inicio-->
+        <h1>Bienvenido a Ski Stick</h1>
+        <p align="justify">Somos el grupo IW-9, formado por los alumnos Aner Lekue Agra, Javier Gonzalez Sandoval, Mikel
+          Giorgi Romero Bermejo y Roberto Martínez - Guisasola Guerrero. Los cuatro somos estudiantes de la universidad de Deusto
+          y estamos desarrollando este proyecto para la asignatura de Ingeniería Web
+        </p>
+        <p>
+          El proyecto está siendo desarrollado con el software <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>
+          , el cual nos permite combinar todos los recursos de HTML, CSS, JavaScript y jQuery, para así poder desarrollar
+          una aplicación DJango
+        </p>
+        <p>
+          Para navegar por la aplicación basta con usar el menú de navegación para acceder a la información deseada
+        </p>
+        <h1>Estaciones de esquí</h1>
         <p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
         <!--TODO meter javaQuery para sacar la tabla de las estaciones por cordilleras-->
         <!--https://es.stackoverflow.com/questions/70206/como-incluir-html-en-otro-html-->
@@ -63,7 +82,7 @@
         <ul>
           {% for c in listaCordilleras %}
           <li>
-            <a href="/{{ c.id }}">{{ c.nombre}}</a>
+            <a href="/cordillera/{{ c.id }}">{{ c.nombre}}</a>
             <!--TODO sacar las estaciones en funcion de las cordilleras-->
             {% if estaciones %}
               <!--<ul>
@@ -81,7 +100,6 @@
         <p>No hay cordilleras creadas.</p>
         {% endif %}
         {% endblock %}
-        </p>
         <p>This template is written entirely in <strong>HTML5</strong> and <strong>CSS</strong>, and can be validated using the links in the footer.</p>
         <p>You can view more free HTML5 web templates <a href="http://www.html5webtemplates.co.uk">here</a>.</p>
         <p>This template is a fully functional 5 page website, with an <a href="examples.html">examples</a> page that gives examples of all the styles available with this design.</p>
