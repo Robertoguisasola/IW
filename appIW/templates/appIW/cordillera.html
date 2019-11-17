@@ -1,9 +1,10 @@
 {% block titulo %} Detalle de la cordillera{% endblock %}
 
 {% block contenido %}
-<h2>Informaci&oacoute;n de la cordillera</h2>
+<h2>Información de la cordillera</h2>
 
 {% if cordillera %}
+
     <a href="/appIW/estaciones/{{cordillera.id}}"></a>
 {% else %}
     <p>No existe esta cordillera</p>
