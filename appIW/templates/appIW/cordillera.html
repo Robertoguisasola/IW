@@ -35,7 +35,12 @@
                 {% for e in estaciones %}
                 <tr>
                     <td><a href="estacion/{{e.id}}">{{e.nombre}}</a></td>
-                    <td>{{e.abierta}}</td>
+                    <td>{% if e.abierta == true %}
+                        Abierta
+                        {% else %}
+                        Cerrada
+                        {% endif %}
+                    </td>
                     <td>{{e.nPistas}}</td>
                     <td>{{e.nPistasTotales}}</td>
                     <td>{{e.nKilometros}}</td>
