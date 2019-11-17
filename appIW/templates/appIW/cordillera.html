@@ -20,17 +20,31 @@
                     {% if cordillera %}
 
                  <h2>{{cordillera.nombre}}</h2>
-            <ul>
-            {% for e in estaciones %}
-                <li>
-                    <a href="estacion/{{e.id}}" >{{e.nombre}}</a>
-                </li>
-            {% endfor %}
-            </ul>
+            <table>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Estado</td>
+                    <td>Pistas abiertas</td>
+                    <td>Pistas totales</td>
+                    <td>Kilómetros esquiables</td>
+                    <td>Kilómetros totales</td>
+                    <td>Enlace</td>
+                </tr>
+                {% for e in estaciones %}
+                <tr>
+                    <td><a href="estacion/{{e.id}}">{{e.nombre}}</a></td>
+                    <td>{{e.abierta}}</td>
+                    <td>{{e.nPistas}}</td>
+                    <td>{{e.nPistasTotales}}</td>
+                    <td>{{e.nKilometros}}</td>
+                    <td>{{e.nKilometrosTotales}}</td>
+                    <td>{{e.enlace}}</td>
+                </tr>
+                {% endfor %}
+            </table>
             {% else %}
             <p>No existe esta cordillera</p>
             {% endif %}
-
         {% endblock %}
         </div>
     </div>
