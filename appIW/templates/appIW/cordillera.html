@@ -11,9 +11,9 @@
 </head>
 <body>
     <div id="main">
+        <div id="header"></div>
+        <div id="site_content">
         <div id="content">
-            {% block titulo %} Detalle de la cordillera{% endblock %}
-
             {% block contenido %}
                 <h1>Información de la cordillera</h1>
 
@@ -31,8 +31,9 @@
             <p>No existe esta cordillera</p>
             {% endif %}
 
-        {% endblock %}
+            {% endblock %}
         </div>
+    </div>
     </div>
 </body>
 </html>
