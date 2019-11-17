@@ -6,8 +6,8 @@ from . import views
 
 urlpatterns = [
     path('home/', views.index, name='indice'),
-    path('<int:cordillera_id>/', views.cordillera, name='cordillera'),
-    path('<int:estacion_id>/', views.estacion, name='estacion'),
-    path('<int:pista_id>/', views.pista, name='pista'),
+    path('cordillera/<int:cordillera_id>/', views.cordillera, name='cordillera'),
+    path('estacion/<int:estacion_id>/', views.estacion, name='estacion'),
+    path('pista/<int:pista_id>/', views.pista, name='pista'),
     path('admin/', RedirectView.as_view(url=reverse_lazy('admin:index')), name='admin')
 ]
