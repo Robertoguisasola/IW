@@ -5,7 +5,11 @@
 
 {% if cordillera %}
 
-    <a href="/appIW/estaciones/{{cordillera.id}}"></a>
+    {% for c in cordillera %}
+
+    <a href="estacion/{{c.id}}" >{{c.nombre}}</a>
+
+    {% endfor %}
 {% else %}
     <p>No existe esta cordillera</p>
 {% endif %}
