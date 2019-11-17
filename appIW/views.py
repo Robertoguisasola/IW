@@ -26,7 +26,8 @@ def cordilleras(request):
 # Devuelve los detalles de una cordillera
 def cordillera(request, cordillera_id):
     cordillera = get_object_or_404(Cordillera, pk=cordillera_id)
-    context = {'cordillera': cordillera}
+    estaciones = cordillera.estacion_set.all()
+    context = {'cordillera': cordillera, 'estaciones': estaciones}
     return render(request, 'appIW/cordillera.html', context)
 
 

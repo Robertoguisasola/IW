@@ -1,17 +1,38 @@
-{% block titulo %} Detalle de la cordillera{% endblock %}
+{% load static %}
+<!DOCTYPE HTML>
 
-{% block contenido %}
-<h2>Información de la cordillera</h2>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="website description"/>
+    <meta name="keywords" content="website keywords, website keywords"/>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'appIW/style/style.css' %}"/>
+</head>
+<body>
+    <div id="main">
+        <div id="content">
+            {% block titulo %} Detalle de la cordillera{% endblock %}
 
-{% if cordillera %}
+            {% block contenido %}
+                <h1>Información de la cordillera</h1>
 
-    {% for c in cordillera %}
+                    {% if cordillera %}
 
-    <a href="estacion/{{c.id}}" >{{c.nombre}}</a>
+                 <h2>{{cordillera.nombre}}</h2>
+            <ul>
+            {% for e in estaciones %}
+                <li>
+                    <a href="estacion/{{e.id}}" >{{e.nombre}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>No existe esta cordillera</p>
+            {% endif %}
 
-    {% endfor %}
-{% else %}
-    <p>No existe esta cordillera</p>
-{% endif %}
-
-{% endblock %}
+        {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
