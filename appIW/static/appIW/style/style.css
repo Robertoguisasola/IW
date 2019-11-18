@@ -8,14 +8,6 @@ body
   background: #090708;
   color: #5D5D5D;}
 
-#fondo
-{
-background: transparent url(fondo.jpg) no-repeat;
-  width: 860px;
-  position: relative;
-  height: 200px;
-
-}
 p
 { margin: 0px;
   padding: 0px 0px 16px 0px;
@@ -194,7 +186,7 @@ ul#menu li a:hover
   overflow: hidden;
   margin: 0 auto 0 auto;
   padding: 10px 20px 20px 20px;
-  background: #F6F6F0 url(back.png) repeat-y;
+  background: transparent url(fondo.jpg) no-repeat;
   border: 15px solid #FFF;} 
 
 .sidebar
