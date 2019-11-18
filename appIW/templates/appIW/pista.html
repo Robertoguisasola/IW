@@ -1,7 +1,5 @@
-
 {% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,29 +9,33 @@
     <link rel="stylesheet" type="text/css" href="{% static 'appIW/style/style.css' %}"/>
 </head>
 <body>
-    <div id="main">
+ <div id="main">
         <div id="header">
             <div id ="logo"></div>
         </div>
         <div id="site_content">
         <div id="content">
 
-		{% block contenido %}
-		<h1>Listado de pistas</h1>
-		{% if estacion %}
-			<ul>
-			{% for p in pistas %}
-				<li>
-		   			 <a href="/pista/{{p.id}}">{{p.nombre}}</a>
-				</li>
-			{% endfor %}
-			</ul>
-		{% else %}
-		<p>No hay pistas creadas.</p>
-		{% endif %}
-		{% endblock %}
-		</div>
-    	</div>
+{% block contenido %}
+<h1>Detalles de la pista</h1>
+{% if pista %}
+    <ul>
+	    <li>
+            Nombre: {{pista.nombre}}
+        </li>
+        <li>
+            Dificultad: {{pista.dificultad}}
+        </li>
+        <li>
+            Longitud: {{pista.longitud}}m
+        </li>
+    </ul>
+{% else %}
+<p>No hay pistas creadas.</p>
+{% endif %}
+{% endblock %}
+			    </div>
+    </div>
     </div>
 </body>
 </html>
