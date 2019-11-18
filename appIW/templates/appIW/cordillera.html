@@ -35,7 +35,7 @@
                 </tr>
                 {% for e in estaciones %}
                 <tr>
-                    <td><a href="estacion/{{e.id}}">{{e.nombre}}</a></td>
+                    <td><a href="/estacion/{{e.id}}">{{e.nombre}}</a></td>
                     <td>{% if e.abierta == true %}
                         Abierta
                         {% else %}
