@@ -79,24 +79,44 @@
         {% block cordilleras %}
         <h2>Listado de cordilleras</h2>
         {% if listaCordilleras %}
-        <ul>
           {% for c in listaCordilleras %}
-          <li>
             <a href="/cordillera/{{ c.id }}">{{ c.nombre}}</a>
-            <!--TODO sacar las estaciones en funcion de las cordilleras-->
-                <ul>
-                  <li>
-                    <!--Estacion 1 -->
-                     <a href="/estacion/{{e.id}}"></a>
-                  </li>
-                   <li>
-                     <!--Estacion 2-->
-                      <a href="/estacion/{{e.id}}"></a>
-                  </li>
-                </ul>
-          </li>
+            {% if listaEstaciones %}
+              <table>
+                    <tr>
+                      <td>Nombre</td>
+                      <td>Estado</td>
+                      <td>Pistas abiertas</td>
+                      <td>Pistas totales</td>
+                      <td>Kilómetros esquiables</td>
+                      <td>Kilómetros totales</td>
+                      <td>Enlace</td>
+                    </tr>
+              {% for e in listaEstaciones %}
+                {% if e.cordillera == c %}
+                <!--TODO hacer que saque solo las abiertas-->
+                  <tr>
+                    <td><a href="/estacion/{{e.id}}">{{e.nombre}}</a></td>
+                    <td>{% if e.abierta %}
+                      Abierta
+                      {% else %}
+                      Cerrada
+                      {% endif %}
+                    </td>
+                    <td>{{e.nPistas}}</td>
+                    <td>{{e.nPistasTotales}}</td>
+                    <td>{{e.nKilometros}}</td>
+                    <td>{{e.nKilometrosTotales}}</td>
+                    <td>{{e.enlace}}</td>
+                  </tr>
+                {% else %}
+                {% endif %}
+              {% endfor %}
+              </table>
+            {% else %}
+            <p>No hay estaciones</p>
+            {% endif %}
           {% endfor %}
-        </ul>
         {% else %}
         <p>No hay cordilleras creadas.</p>
         {% endif %}
