@@ -186,7 +186,7 @@ ul#menu li a:hover
   overflow: hidden;
   margin: 0 auto 0 auto;
   padding: 10px 20px 20px 20px;
-  background: transparent url(fondo.jpg) no-repeat;
+  background: #FFF;
   border: 15px solid #FFF;} 
 
 .sidebar
