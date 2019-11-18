@@ -23,6 +23,12 @@
 	    <li>
             Nombre: {{pista.nombre}}
         </li>
+        <li>{% if pista.abierta == true %}
+             Pista abierta
+            {% else %}
+            Pista cerrada
+            {% endif %}
+        </li>
         <li>
             Dificultad: {{pista.dificultad}}
         </li>
@@ -30,11 +36,11 @@
             Longitud: {{pista.longitud}}m
         </li>
     </ul>
-{% else %}
-<p>No hay pistas creadas.</p>
-{% endif %}
-{% endblock %}
-			    </div>
+    {% else %}
+    <p>No hay pistas creadas.</p>
+    {% endif %}
+    {% endblock %}
+        </div>
     </div>
     </div>
 </body>
