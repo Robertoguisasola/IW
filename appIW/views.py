@@ -15,10 +15,6 @@ def index(request):
     context = {'listaCordilleras': cordilleras}
     return render(request, 'appIW/index.HTML', context)
 
-
-# Devuelve un listado de cordilleras
-
-
 # Devuelve los detalles de una cordillera
 def cordillera(request, cordillera_id):
     cordillera = get_object_or_404(Cordillera, pk=cordillera_id)
@@ -33,13 +29,6 @@ def estacion(request, estacion_id):
     pistas = estacion.pista_set.all()
     context = {'estacion': estacion, 'pistas': pistas}
     return render(request, 'appIW/estacion.html', context)
-
-# Devuelve las pistas de cada estación
-def pistas(request, estacion_id):
-    estacion = get_object_or_404(Estacion, pk=estacion_id)
-    pistas = estacion.pista_set.all()
-    context = {'estacion': estacion, 'pistas': pistas}
-    return render(request, 'appIW/pistas.html', context)
 
 
 # Devuelve los detalles de una pista
