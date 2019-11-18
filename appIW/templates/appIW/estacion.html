@@ -1,0 +1,16 @@
+{% block titulo %}Listado de pistas{% endblock %}
+
+{% block contenido %}
+<h1>Listado de pistas</h1>
+{% if listaPistas %}
+	<ul>
+	{% for c in listaPistas %}
+		<li>
+		    <a href="/estacion/{{e.id}}">{{e.nombre}}</a>
+		</li>
+	{% endfor %}
+	</ul>
+{% else %}
+<p>No hay pistas creadas.</p>
+{% endif %}
+{% endblock %}
