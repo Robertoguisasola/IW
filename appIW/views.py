@@ -12,7 +12,7 @@ def index(request):
 
 def index(request):
     cordilleras = get_list_or_404(Cordillera.objects.order_by('nombre'))
-    context = {'listaCordilleras': cordilleras, 'estaciones': estaciones}
+    context = {'listaCordilleras': cordilleras}
     return render(request, 'appIW/index.HTML', context)
 
 
