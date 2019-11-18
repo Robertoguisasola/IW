@@ -5,7 +5,7 @@ body
   padding: 0px;
   margin: 0px;
   font-size: .78em;
-  background: #090708;
+  background: #0d0d0d;
   color: #5D5D5D;}
 
 p
@@ -186,7 +186,7 @@ ul#menu li a:hover
   overflow: hidden;
   margin: 0 auto 0 auto;
   padding: 10px 20px 20px 20px;
-  background: #FFF;
+  background: #F5F5F5;
   border: 15px solid #FFF;} 
 
 .sidebar
@@ -318,7 +318,7 @@ table tr th, table tr td
   text-align: left;}
   
 table tr td
-{ background: #E5E5DB;
+{ background: #F5F5F5;
   border: 1px solid black;
   color: #47433F;
-  border-top: 1px solid #FFF;}
+  border-top: 1px solid #000;}
