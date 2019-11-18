@@ -15,8 +15,6 @@ def index(request):
     context = {'listaCordilleras': cordilleras}
     return render(request, 'appIW/index.HTML', context)
 
-
-
 # Devuelve los detalles de una cordillera
 def cordillera(request, cordillera_id):
     cordillera = get_object_or_404(Cordillera, pk=cordillera_id)
