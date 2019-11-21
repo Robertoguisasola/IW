@@ -25,7 +25,7 @@ def cordillera(request, cordillera_id):
 def estacion(request, estacion_id):
     estacion = get_object_or_404(Estacion, pk=estacion_id)
     pistas = estacion.pista_set.all()
-    context = {'estacion': estacion, 'pistas': pistas}
+    context = {'estacion': estacion, 'listaPistas': pistas}
     return render(request, 'appIW/estacion.html', context)
 
 

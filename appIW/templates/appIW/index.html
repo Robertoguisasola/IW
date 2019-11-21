@@ -1,9 +1,9 @@
-{% load static %}
+{% extends "plantilla.html"%}
+
 <!DOCTYPE HTML>
 
 <html lang="en">
 <head>
-
   <title>SKI STICK</title>
   <meta charset="UTF-8">
   <meta name="description" content="website description"/>
@@ -73,7 +73,6 @@
         </p>
         <h1>Estaciones de esquí</h1>
         <p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
-        <!--TODO meter javaQuery para sacar la tabla de las estaciones por cordilleras-->
         <!--https://es.stackoverflow.com/questions/70206/como-incluir-html-en-otro-html-->
         <p>
         {% block cordilleras %}
