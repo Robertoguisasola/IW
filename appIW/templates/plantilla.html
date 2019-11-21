@@ -2,16 +2,16 @@
 <html>
 
 <head>
-    <title>{% block titulo %}Plantilla Ejemplo{% endblock}</title>
-    <meta name="description" content="Información a cerca de las estaciones de esquí de España" />
-    <meta name="keywords" content="website keywords, website keywords" />
+    <title>{% block titulo %}Plantilla Ejemplo{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="website description"/>
+    <meta name="keywords" content="website keywords, website keywords"/>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
     <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
-
-    {% block icono %}
-    <link rel="shortcut icon" href="{% static '/style/logoTitulo.jpg' %}">
-    {% endoblock %}
+    <link rel="shortcut icon" href="/static/style/logoTitulo.jpg">
 
     {% block css %}
+        {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '/style/style.css' %}"/>
     {% endblock %}
     {% block javascript %}
@@ -24,7 +24,7 @@
         <div id="logo">
             <div id="logo_text">
                 <h1>Ski <span class="logo_colour">Stick</span></h1>
-                <h2><a href="https://www.fis-ski.com/en">Acceso a la Federación Internacional de Esquí</a></h2>
+                <h2><a href="https://www.fis-ski.com/en">Acceso a la FederaciÃ³n Internacional de EsquÃ­</a></h2>
             </div>
         </div>
         <div id="menubar">
