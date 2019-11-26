@@ -62,6 +62,7 @@
         <!--TODO meter javaQuery para sacar la tabla de las estaciones por cordilleras-->
         <!--https://es.stackoverflow.com/questions/70206/como-incluir-html-en-otro-html-->
         <p>
+        <!-- TODO centrar la tabla-->
         {% block pistas %}
         <h2>Listado de pistas de {{estacion}}</h2>
         	{% if listaPistas %}
@@ -69,27 +70,18 @@
 				<tr>
 					<td>Nombre</td>
 				 	<td>Estado</td>
-				  	<td>Pistas abiertas</td>
-				  	<td>Pistas totales</td>
-				 	<td>Kilómetros esquiables</td>
-				  	<td>Kilómetros totales</td>
-				  	<td>Enlace</td>
+
 			  	</tr>
 			  	{% for p in listaPistas %}
 			  <!--TODO hacer que saque solo las abiertas-->
 			  <tr>
-				  <td><a href="/estacion/{{e.id}}">{{e.nombre}}</a></td>
-				  <td>{% if e.abierta %}
+				  <td><a href="/pista/{{p.id}}">{{p.nombre}}</a></td>
+				  <td>{% if p.abierta %}
 					  Abierta
 					  {% else %}
 					  Cerrada
 					  {% endif %}
 				  </td>
-				  <td>{{e.nPistas}}</td>
-				  <td>{{e.nPistasTotales}}</td>
-				  <td>{{e.nKilometros}}</td>
-				  <td>{{e.nKilometrosTotales}}</td>
-				  <td>{{e.enlace}}</td>
 			  </tr>
 			  {% endfor %}
 		  	</table>
@@ -100,20 +92,7 @@
 	  </div>
 	</div>
 
-		{% block contenido %}
-		<h1>Listado de pistas</h1>
-		{% if estacion %}
-			<ul>
-			{% for p in pistas %}
-				<li>
-		   			 <a href="/pista/{{p.id}}">{{p.nombre}}</a>
-				</li>
-			{% endfor %}
-			</ul>
-		{% else %}
-		<p>No hay pistas creadas.</p>
-		{% endif %}
-		{% endblock %}
+
 		</div>
     	</div>
     </div>
