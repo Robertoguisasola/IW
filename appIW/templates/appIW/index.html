@@ -21,7 +21,7 @@
         <h2>Listado de cordilleras</h2>
         {% if listaCordilleras %}
           {% for c in listaCordilleras %}
-            <a href="/cordillera/{{ c.id }}">{{ c.nombre}}</a>
+            <a href="/cordillera/{{ c.id }}" >{{ c.nombre}}</a>
             {% if listaEstaciones %}
               <table>
                     <tr>
