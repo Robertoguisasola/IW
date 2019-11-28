@@ -8,8 +8,9 @@ from .models import Cordillera, Estacion, Pista
 # view inicial
 
 def index(request):
+    #TODO hacer que saque solo dos por cordillera
     cordilleras = get_list_or_404(Cordillera.objects.order_by('nombre'))
-    estaciones = get_list_or_404(Estacion.objects.order_by('nombre'))
+    estaciones = get_list_or_404(Estacion.objects.order_by('-nKilometrosTotales'))
     context = {'listaCordilleras': cordilleras, 'listaEstaciones': estaciones}
     return render(request, 'appIW/index.HTML', context)
 

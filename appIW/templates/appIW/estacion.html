@@ -1,76 +1,29 @@
+{% extends "plantilla.html"%}
 
-{% load static %}
-<!DOCTYPE html>
+{% block titulo %}SKI STICK{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="website description"/>
-    <meta name="keywords" content="website keywords, website keywords"/>
-    <meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/style/style.css' %}"/>
-</head>
-<body>
-
-  <div id="main">
-    <div id="header">
-      <div id="logo">
-        <div id="logo_text">
-          <!-- class="logo_colour", allows you to change the colour of the text -->
-          <h1>Ski <span class="logo_colour">Stick</span></h1>
-          <h2><a href="https://www.fis-ski.com/en">Acceso a la Federación Internacional de Esquí</a></h2>
-        </div>
-      </div>
-      <div id="menubar">
-        <ul id="menu">
-          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <!--TODO cambiar los nombres de las pestañas de la página-->
-          <li class="selected"><a href="index.html">Inicio</a></li>
-          <li><a href="examples.html">Examples</a></li>
-          <li><a href="page.html">A Page</a></li>
-          <li><a href="another_page.html">Another Page</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-    <div id="content_header"></div>
-    <div id="site_content">
-      <div class="sidebar">
-        <h1>Latest News</h1>
-        <h4>New Website Launched</h4>
-        <h5>January 1st, 2010</h5>
-        <p>2010 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
-        <h1>Useful Links</h1>
-        <ul>
-          <li><a href="#">link 1</a></li>
-          <li><a href="#">link 2</a></li>
-          <li><a href="#">link 3</a></li>
-          <li><a href="#">link 4</a></li>
-        </ul>
-        <h1>Search</h1>
-        <form method="post" action="#" id="search_form">
-          <p>
-            <input class="search" type="text" name="search_field" value="Enter keywords....." />
-            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="appIW/style/search.png" alt="Search" title="Search" />
-          </p>
-        </form>
-      </div>
-      <div id="content">
-        <!--TODO poner lo que queremos que se muestre en la página de inicio-->
-        <h1>{{estacion}}</h1>
-        <p>Estación de esquí y snowboard </p>
-        <!--TODO meter javaQuery para sacar la tabla de las estaciones por cordilleras-->
-        <!--https://es.stackoverflow.com/questions/70206/como-incluir-html-en-otro-html-->
-        <p>
+{% block contenido %}
+<!--TODO poner lo que queremos que se muestre en la página de inicio-->
+<h1>{{estacion}}</h1>
+<p>Estación de esquí y snowboard, situada en {{ estacion.cordillera }}</p>
+{% if estacion.abierta%}
+        <p>La estación actualmente dispone de un total de {{ estacion.nPistas }} abiertas, con un total de
+		{{ estacion.nKilometros }} kilçometros esquiables abiertos</p>
+{% else %}
+<p>La estacion se encuentra cerrada actualmente</p>
+{% endif %}
+<!--TODO como poner el enlace a la web oficial-->
+<p>Haga click aquí para acceder a la web de la estación</p>
         <!-- TODO centrar la tabla-->
         {% block pistas %}
         <h2>Listado de pistas de {{estacion}}</h2>
         	{% if listaPistas %}
-		  	<table>
+		  	<table style="margin: 0 auto;">
 				<tr>
 					<td>Nombre</td>
 				 	<td>Estado</td>
-
+					<td>Dificultad</td>
+					<td>Longitud</td>
 			  	</tr>
 			  	{% for p in listaPistas %}
 			  <!--TODO hacer que saque solo las abiertas-->
@@ -82,19 +35,13 @@
 					  Cerrada
 					  {% endif %}
 				  </td>
+				  <td>{{ p.dificultad }}</td>
+				  <td>{{ p.longitud }}</td>
 			  </tr>
 			  {% endfor %}
 		  	</table>
 		  {% else %}
 		  <p>No existe ninguna pista en {{estacion}}</p>
 		  {% endif %}
-		  {% endblock %}
-	  </div>
-	</div>
-
-
-		</div>
-    	</div>
-    </div>
-</body>
-</html>
+{% endblock %}
+{% endblock %}
