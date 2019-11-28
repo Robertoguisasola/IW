@@ -1,21 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="website description"/>
-    <meta name="keywords" content="website keywords, website keywords"/>
-    <meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/style/style.css' %}"/>
-</head>
-<body>
- <div id="main">
-        <div id="header">
-            <div id ="logo"></div>
-        </div>
-        <div id="site_content">
-        <div id="content">
-
+{% extends "plantilla.html"%}
 {% block contenido %}
 <h1>Detalles de la pista</h1>
 {% if pista %}
@@ -40,8 +23,3 @@
     <p>No hay pistas creadas.</p>
     {% endif %}
     {% endblock %}
-        </div>
-    </div>
-    </div>
-</body>
-</html>
