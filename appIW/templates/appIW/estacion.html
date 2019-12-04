@@ -3,7 +3,6 @@
 {% block titulo %}SKI STICK{% endblock %}
 
 {% block contenido %}
-<!--TODO poner lo que queremos que se muestre en la página de inicio-->
 <h1>{{estacion}}</h1>
 <p>Estación de esquí y snowboard, situada en {{ estacion.cordillera }}</p>
 {% if estacion.abierta%}
@@ -12,8 +11,8 @@
 {% else %}
 <p>La estacion se encuentra cerrada actualmente</p>
 {% endif %}
-<!--TODO como poner el enlace a la web oficial-->
-<p>Haga click aquí para acceder a la web de la estación</p>
+
+<p><a href="{{ estacion.enlacePagina }}">Haga click aquí para acceder a la web de la estación</p>
         <!-- TODO centrar la tabla-->
         {% block pistas %}
         <h2>Listado de pistas de {{estacion}}</h2>
