@@ -5,10 +5,10 @@ from .models import Cordillera, Estacion, Pista
 
 
 # Create your views here.
-# view inicial
 
+# view inicial, saca las cordilleras alfabéticamente y las estaciones descendentes por kilómetros totales
 def index(request):
-    #TODO hacer que saque solo dos por cordillera
+    #TODO hacer que saque solo las abiertas
     cordilleras = get_list_or_404(Cordillera.objects.order_by('nombre'))
     estaciones = get_list_or_404(Estacion.objects.order_by('-nKilometrosTotales'))
     context = {'listaCordilleras': cordilleras, 'listaEstaciones': estaciones}

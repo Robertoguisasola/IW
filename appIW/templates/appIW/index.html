@@ -2,6 +2,10 @@
 
 {% block titulo %}SKI STICK{% endblock %}
 
+{% block javascript %}
+<script type="text/javascript" src="js/scriptCordilleras.js"></script>
+{% endblock %}
+
 {% block contenido %}
 <h1>Bienvenido a Ski Stick</h1>
 <p align="justify">Somos el grupo IW-9, formado por los alumnos Aner Lekue Agra, Javier Gonzalez Sandoval, Mikel Giorgi
@@ -21,9 +25,12 @@
         <h2>Listado de cordilleras</h2>
         {% if listaCordilleras %}
           {% for c in listaCordilleras %}
-            <a href="/cordillera/{{ c.id }}" >{{ c.nombre}}</a>
+            <!--TODO hacer que oculte las tablas de cada cordillera como en los GinTonics-->
+            <h3 name="item1">{{c.nombre}}</h3>
+            <a href="/cordillera/{{ c.id }}" >Ver cordillera</a>
             {% if listaEstaciones %}
-              <table>
+                <div id="item1body">
+                <table>
                     <tr>
                       <td>Nombre</td>
                       <td>Estado</td>
@@ -35,7 +42,6 @@
                     </tr>
               {% for e in listaEstaciones %}
                 {% if e.cordillera == c %}
-                <!--TODO hacer que saque solo las abiertas-->
                   <tr>
                     <td><a href="/estacion/{{e.id}}">{{e.nombre}}</a></td>
                     <td>{% if e.abierta %}
