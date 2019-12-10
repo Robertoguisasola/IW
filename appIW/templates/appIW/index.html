@@ -3,7 +3,7 @@
 {% block titulo %}SKI STICK{% endblock %}
 
 {% block javascript %}
-<script type="text/javascript" src="js/scriptCordilleras.js"></script>
+    	<script type="text/javascript" src="/static/js/scriptCordilleras.js"></script>
 {% endblock %}
 
 {% block contenido %}
@@ -17,19 +17,17 @@
     aplicación DJango
 </p>
 <p align="justify">Para navegar por la aplicación basta con usar el menú de navegación para acceder a la información deseada</p>
-        <h1>Estaciones de esquí</h1>
-        <p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
-        <!--https://es.stackoverflow.com/questions/70206/como-incluir-html-en-otro-html-->
-        <p>
-        {% block cordilleras %}
-        <h2>Listado de cordilleras</h2>
+<h1>Estaciones de esquí</h1>
+<p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
+<h2>Listado de cordilleras</h2>
+    <div class="cordilleras">
         {% if listaCordilleras %}
           {% for c in listaCordilleras %}
             <!--TODO hacer que oculte las tablas de cada cordillera como en los GinTonics-->
-            <h3 name="item1">{{c.nombre}}</h3>
+            <a name={{c.id}}><h3>{{c.nombre}}</h3></a>
             <a href="/cordillera/{{ c.id }}" >Ver cordillera</a>
             {% if listaEstaciones %}
-                <div id="item1body">
+                <div id={{c.id}}body>
                 <table>
                     <tr>
                       <td>Nombre</td>
@@ -54,12 +52,13 @@
                     <td>{{e.nPistasTotales}}</td>
                     <td>{{e.nKilometros}}</td>
                     <td>{{e.nKilometrosTotales}}</td>
-                    <td><a href="{{ e.enlacePagina }}">Web oficial</td>
+                      <td><a href="{{ e.enlacePagina }}">Web oficial</a></td>
                   </tr>
                 {% else %}
                 {% endif %}
               {% endfor %}
               </table>
+                </div>
             {% else %}
             <p>No hay estaciones</p>
             {% endif %}
@@ -67,5 +66,5 @@
         {% else %}
         <p>No hay cordilleras creadas.</p>
         {% endif %}
-        {% endblock %}
+    </div>
 {% endblock %}
