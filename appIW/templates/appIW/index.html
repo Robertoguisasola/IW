@@ -23,7 +23,6 @@
     <div class="cordilleras">
         {% if listaCordilleras %}
           {% for c in listaCordilleras %}
-            <!--TODO hacer que oculte las tablas de cada cordillera como en los GinTonics-->
             <a name={{c.id}}><h3>{{c.nombre}}</h3></a>
             <a href="/cordillera/{{ c.id }}" >Ver cordillera</a>
             {% if listaEstaciones %}

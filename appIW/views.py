@@ -8,12 +8,16 @@ from .models import Cordillera, Estacion, Pista
 
 # view inicial, saca las cordilleras alfabéticamente y las estaciones descendentes por kilómetros totales
 def index(request):
-    #TODO hacer que saque solo las abiertas
-    #Hacer con filter
     cordilleras = get_list_or_404(Cordillera.objects.order_by('nombre'))
     estaciones = get_list_or_404(Estacion.objects.order_by('-nKilometrosTotales'))
-    context = {'listaCordilleras': cordilleras, 'listaEstaciones': estaciones}
+    estacionesAbiertas = list()
+    for estacion in estaciones:
+        if estacion.abierta:
+            estacionesAbiertas.append(estacion)
+
+    context = {'listaCordilleras': cordilleras, 'listaEstaciones': estacionesAbiertas}
     return render(request, 'appIW/index.HTML', context)
+
 
 # Devuelve los detalles de una cordillera
 def cordillera(request, cordillera_id):
