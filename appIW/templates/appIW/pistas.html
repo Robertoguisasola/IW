@@ -1,0 +1,59 @@
+{% extends "plantilla.html"%}
+
+{% block titulo %}SKI STICK{% endblock %}
+
+{% block javascript %}
+    	<script type="text/javascript" src="/static/js/scriptCordilleras.js"></script>
+{% endblock %}
+
+{% block menu %}
+<li><a href="/index">Inicio</a></li>
+<li><a href="/cordilleras">Cordilleras</a></li>
+<li><a href="/estaciones">Estaciones</a></li>
+<li><a href="/pistas" class="selected">Pistas</a></li>
+<li><a href="/contacto">Contacto</a></li>
+{% endblock %}
+
+{% block contenido %}
+<h1>Listado de estaciones</h1>
+    <div class="cordilleras">
+        {% if listaEstaciones %}
+        {% for e in listaEstaciones %}
+        <a name={{e.id}}><h3>{{e.nombre}}</h3></a>
+        <a href="/estacion/{{ e.id }}" >Ver estacion</a>
+        {% if listaPistas %}
+        <div id={{e.id}}body>
+            <table>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Estado</td>
+                    <td>Dificultad</td>
+                    <td>Longitud</td>
+                </tr>
+                {% for p in listaPistas %}
+                {% if p.estacion == e %}
+                <tr>
+                    <td><a href="/pista/{{p.id}}">{{p.nombre}}</a></td>
+                    <td>{% if p.abierta %}
+                        Abierta
+                        {% else %}
+                        Cerrada
+                        {% endif %}
+                    </td>
+                    <td>{{p.dificultad}}</td>
+                    <td>{{p.longitud}}</td>
+                </tr>
+                {% else %}
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        {% else %}
+        <p>No hay pistas</p>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <p>No hay estaciones</p>
+        {% endif %}
+    </div>
+{% endblock %}

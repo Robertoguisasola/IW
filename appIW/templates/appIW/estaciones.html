@@ -1,0 +1,52 @@
+{% extends "plantilla.html"%}
+
+{% block titulo %}SKI STICK{% endblock %}
+
+{% block javascript %}
+    	<script type="text/javascript" src="/static/js/scriptCordilleras.js"></script>
+{% endblock %}
+
+{% block menu %}
+<li><a href="/index">Inicio</a></li>
+<li><a href="/cordilleras">Cordilleras</a></li>
+<li><a href="/estaciones" class="selected">Estaciones</a></li>
+<li><a href="/pistas">Pistas</a></li>
+<li><a href="/contacto">Contacto</a></li>
+{% endblock %}
+
+{% block contenido %}
+<h1>Listado de estaciones</h1>
+    <div class="estaciones">
+        {% if estaciones %}
+        <table>
+            <tr>
+                <td>Nombre</td>
+                <td>Estado</td>
+                <td>Pistas abiertas</td>
+                <td>Pistas totales</td>
+                <td>Kilómetros esquiables</td>
+                <td>Kilómetros totales</td>
+                <td>Enlace</td>
+            </tr>
+            {% for e in estaciones %}
+            <tr>
+                <td><a href="/estacion/{{e.id}}">{{e.nombre}}</a></td>
+                <td>{% if e.abierta %}
+                    Abierta
+                    {% else %}
+                    Cerrada
+                    {% endif %}
+                </td>
+                <td>{{e.nPistas}}</td>
+                <td>{{e.nPistasTotales}}</td>
+                <td>{{e.nKilometros}}</td>
+                <td>{{e.nKilometrosTotales}}</td>
+                <td><a href="{{ e.enlacePagina }}">Web oficial</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No hay estaciones</p>
+        {% endif %}
+    </div>
+{% endblock %}

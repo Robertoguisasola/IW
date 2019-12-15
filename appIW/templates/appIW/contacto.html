@@ -1,0 +1,24 @@
+{% extends "plantilla.html"%}
+
+{% block titulo %}SKI STICK{% endblock %}
+
+{% block menu %}
+<li><a href="/index">Inicio</a></li>
+<li><a href="/cordilleras">Cordilleras</a></li>
+<li><a href="/estaciones">Estaciones</a></li>
+<li><a href="/pistas">Pistas</a></li>
+<li><a href="/contacto" class="selected">Contacto</a></li>
+{% endblock %}
+
+{% block contenido %}
+<h1>Contactanos</h1>
+<p>Rellene el siguiente formulario y en breve nos pondremos en contacto con usted</p>
+<form action="#" method="post">
+  <div class="form_settings">
+    <p><span>Nombre</span><input class="contact" type="text" name="your_name" value="" /></p>
+    <p><span>Email</span><input class="contact" type="text" name="your_email" value="" /></p>
+    <p><span>Mensaje</span><textarea class="contact textarea" rows="8" cols="50" name="your_enquiry"></textarea></p>
+    <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Enviar" /></p>
+  </div>
+</form>
+{% endblock %}

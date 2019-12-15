@@ -7,27 +7,15 @@
 {% endblock %}
 
 {% block menu %}
-<li><a href="/index" class="selected">Inicio</a></li>
-<li><a href="/cordilleras">Cordilleras</a></li>
+<li><a href="/index">Inicio</a></li>
+<li><a href="/cordilleras" class="selected">Cordilleras</a></li>
 <li><a href="/estaciones">Estaciones</a></li>
 <li><a href="/pistas">Pistas</a></li>
 <li><a href="/contacto">Contacto</a></li>
 {% endblock %}
 
 {% block contenido %}
-<h1>Bienvenido a Ski Stick</h1>
-<p align="justify">Somos el grupo IW-9, formado por los alumnos Aner Lekue Agra, Javier Gonzalez Sandoval, Mikel Giorgi
-    Romero Bermejo y Roberto Martínez - Guisasola Guerrero. Los cuatro somos estudiantes de la universidad de Deusto y
-    estamos desarrollando este proyecto para la asignatura de Ingeniería Web
-</p>
-<p align="justify">El proyecto está siendo desarrollado con el software <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>
-    , el cual nos permite combinar todos los recursos de HTML, CSS, JavaScript y jQuery, para así poder desarrollar una
-    aplicación DJango
-</p>
-<p align="justify">Para navegar por la aplicación basta con usar el menú de navegación para acceder a la información deseada</p>
-<h1>Estaciones de esquí</h1>
-<p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
-<h2>Listado de cordilleras</h2>
+<h1>Listado de cordilleras</h1>
     <div class="cordilleras">
         {% if listaCordilleras %}
           {% for c in listaCordilleras %}
