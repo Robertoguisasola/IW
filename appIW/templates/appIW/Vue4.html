@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+
+    <p>
+        hola que tal como estamos aqui willirex comentando
+    </p>
+    <div id="app-4">
+        <input v-model="newLanguage" type="text" placeholder="agregar nuevo lenguaje" @keyup.enter="saveLanguage">
+        <ol>
+            <li v-for="l in languages">
+                {{l}}
+            </li>
+        </ol>
+    <h2> {{counter}} </h2>
+    <button @click="counter++">Me gusta</button>
+    <button @click="counter--">No me gusta</button>
+    <button @click="saveLanguage">Insertar Lenguaje</button>
+
+    </div>
+
+
+    <script type="text/javascript">
+    var app4 = new Vue({
+		el:"#app-4",
+		data:{
+		    header: 'Lenguajes de programación de IW',
+		    counter:0,
+		    newLanguage:"",
+			languages:[
+			    'JavaScript',
+			    'Jquery',
+			    'Vue'
+			]
+		},
+		methods:{
+		    saveLanguage: function(){
+		        this.languages.push(this.newLanguage);
+		        this.newLanguage="";
+		        if(event){
+		            alert(event.target.tagName)
+                }
+		        }
+        }
+
+	});
+
+ </script>
+
+</body>
+</html>
