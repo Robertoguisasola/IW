@@ -21,4 +21,40 @@
     <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Enviar" /></p>
   </div>
 </form>
+
+<div id="app-4">
+        <input v-model="newContacto" type="text" placeholder="agregar nuevo contacto" @keyup.enter="saveContacto">
+        <ol>
+            <li v-for="c in contactos">
+                {{c}}
+            </li>
+        </ol>
+</div>
+
+
+
+ <script type="text/javascript">
+    var app4 = new Vue({
+		el:"#app-4",
+		data:{
+		    header: 'Contactos',
+		    contacto:"",
+			contactos:[
+			    'Javi',
+			    'Aner',
+			    'Roberto'
+			]
+		},
+		methods:{
+		    saveContacto: function(){
+		        this.contactos.push(this.newContacto);
+		        this.newContacto="";
+		        if(event){
+		            alert(event.target.tagName)
+                }
+		        }
+        }
+	});
+
+ </script>
 {% endblock %}
