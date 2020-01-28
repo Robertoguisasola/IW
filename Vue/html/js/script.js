@@ -2,9 +2,9 @@
 
 const config = {
   apiKey: "AIzaSyDzX625bRue00McJQJ9ZcPKYp5nXPnfNcs",
-  authDomain: "agenda-SkiStick.firebaseapp.com",
-  databaseURL: "https://agenda-SkiStick.firebaseio.com/",
-  storageBucket: "gs://agenda-SkiStick.appspot.com",
+  authDomain: "ski-stick.firebaseapp.com",
+  databaseURL: "https://ski-stick.firebaseio.com/",
+  storageBucket: "gs://ski-stick.appspot.com",
   messagingSenderId: "1009221022071"
 };
 let app = firebase.initializeApp(config);
