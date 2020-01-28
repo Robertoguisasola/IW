@@ -1,5 +1,3 @@
-// Initialize Firebase
-
 const config = {
   apiKey: "AIzaSyDzX625bRue00McJQJ9ZcPKYp5nXPnfNcs",
   authDomain: "ski-stick.firebaseapp.com",
@@ -21,15 +19,6 @@ let vue = new Vue({
   },
   mounted: function () {
     let contactos = this.contactos;
-
-    // ContactoRef.once('value')
-    //   .then((value) => {
-    //     let users = Object.values(value.val());
-    //     users.forEach((user) => {
-    //       contactos.push(user);
-    //     });
-    //   });
-
     ContactoRef.once('value')
     .then((value) => {
       let values = value.val();
@@ -65,6 +54,7 @@ let vue = new Vue({
       }else{
         document.getElementById("missing-fields-alert").className = "";
       }
+
     },
     borrar: function (e, contacto) {
       e.preventDefault();
