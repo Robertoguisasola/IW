@@ -22,6 +22,8 @@
   </div>
 </form>
 
+<h2>hola</h2>
+
 <div id="app-4">
         <input v-model="newContacto" type="text" placeholder="agregar nuevo contacto" @keyup.enter="saveContacto">
         <ol>
@@ -33,28 +35,5 @@
 
 
 
- <script type="text/javascript">
-    var app4 = new Vue({
-		el:"#app-4",
-		data:{
-		    header: 'Contactos',
-		    contacto:"",
-			contactos:[
-			    'Javi',
-			    'Aner',
-			    'Roberto'
-			]
-		},
-		methods:{
-		    saveContacto: function(){
-		        this.contactos.push(this.newContacto);
-		        this.newContacto="";
-		        if(event){
-		            alert(event.target.tagName)
-                }
-		        }
-        }
-	});
 
- </script>
 {% endblock %}
