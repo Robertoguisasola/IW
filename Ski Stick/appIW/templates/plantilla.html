@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="es">
 
-<head>
+<head lang="{{ LANGUAGE_CODE }}">
+    {% load staticfiles %}
+    {% load i18n %}
     <title>{% block titulo %}Plantilla Ejemplo{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="description" content="website description"/>
@@ -11,6 +13,9 @@
     <link rel="shortcut icon" href="/static/style/logoTitulo.jpg">
     <script type="text/javascript" src="/static/js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <!-- JavaScript para la internacionalización-->
+
+    <script src="static/js/mensajes.js"></script>
     {% block css %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '/style/style.css' %}"/>

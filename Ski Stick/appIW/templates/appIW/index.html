@@ -1,6 +1,9 @@
 {% extends "plantilla.html"%}
 
 {% block titulo %}SKI STICK{% endblock %}
+<!--TODO poner estas dos lineas en todos los HTML-->
+{% load staticfiles %}
+{% load i18n %}
 
 {% block javascript %}
     	<script type="text/javascript" src="/static/js/scriptCordilleras.js"></script>
@@ -15,7 +18,7 @@
 {% endblock %}
 
 {% block contenido %}
-<h1>Bienvenido a Ski Stick</h1>
+<h1>{% trans "Bienvenido a Ski Stick"%}</h1>
 <p align="justify">Somos el grupo IW-9, formado por los alumnos Aner Lekue Agra, Javier Gonzalez Sandoval, Mikel Giorgi
     Romero Bermejo y Roberto Martínez - Guisasola Guerrero. Los cuatro somos estudiantes de la universidad de Deusto y
     estamos desarrollando este proyecto para la asignatura de Ingeniería Web
@@ -25,6 +28,7 @@
     aplicación DJango
 </p>
 <p align="justify">Para navegar por la aplicación basta con usar el menú de navegación para acceder a la información deseada</p>
+<button class="btn btn-primary" onclick="mostrarMensaje()" type="button">{% trans "Hola" %}</button>
 <h1>Estaciones de esquí</h1>
 <p>A continuaci&oacute;n se muestran las diferentes cordilleras que poseen alguna estaci&oacute;n de esqu&iacute;</p>
 <h2>Listado de cordilleras</h2>
