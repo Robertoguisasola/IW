@@ -1,14 +1,12 @@
 // Initialize Firebase
 
 const config = {
-  apiKey: "AIzaSyCzRLn1728CWTieyKk0AwXX6eUTN-kspk0",
-  authDomain: "agenda-c92a9.firebaseapp.com",
-  databaseURL: "https://agenda-c92a9.firebaseio.com/",
-  storageBucket: "gs://agenda-c92a9.appspot.com",
-  messagingSenderId: "397822333249"
+  apiKey: "AIzaSyDzX625bRue00McJQJ9ZcPKYp5nXPnfNcs",
+  authDomain: "agenda-SkiStick.firebaseapp.com",
+  databaseURL: "https://agenda-SkiStick.firebaseio.com/",
+  storageBucket: "gs://agenda-SkiStick.appspot.com",
+  messagingSenderId: "1009221022071"
 };
-
-
 let app = firebase.initializeApp(config);
 let db = app.database();
 let ContactoRef = db.ref('Contactos');
